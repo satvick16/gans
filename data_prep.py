@@ -2,7 +2,7 @@ import torch
 import torchvision.transforms as transforms
 import torchvision.datasets as dset
 
-from hyperparams import *
+from config import *
 
 
 def get_data():

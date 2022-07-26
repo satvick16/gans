@@ -1,1 +1,5 @@
-# Using generative adversarial networks to generate Bored Ape NFTs, artificial lane data and portraits
+# Using generative adversarial networks to generate 
+
+- Bored Ape NFTs
+- Artificial lane data
+- Portraits

@@ -7,31 +7,23 @@ import torch.optim as optim
 import torch.utils.data
 import torchvision.utils as vutils
 
-from hyperparams import *
+from config import *
 from data_prep import get_data
 from models import *
 from display_results import *
 
+# Ensure reproducibility by fixing random seed
 manualSeed = 999
 
 print("Random Seed: ", manualSeed)
 random.seed(manualSeed)
 torch.manual_seed(manualSeed)
 
+# Prepare data
 dataset, dataloader = get_data()
 
 device = torch.device("cuda:0" if (
     torch.cuda.is_available() and ngpu > 0) else "cpu")
-
-
-def weights_init(m):
-    classname = m.__class__.__name__
-    if classname.find('Conv') != -1:
-        nn.init.normal_(m.weight.data, 0.0, 0.02)
-    elif classname.find('BatchNorm') != -1:
-        nn.init.normal_(m.weight.data, 1.0, 0.02)
-        nn.init.constant_(m.bias.data, 0)
-
 
 # Instantiate models
 netG = Generator(ngpu).to(device)
